@@ -1,23 +1,82 @@
+# Quantum Book Store
 
-##Purchasing Logic
+A Java-based book store application that manages different types of books and their purchasing workflows.
 
-- Lookup by `ISBN`
-- Validate quantity (for PaperBook)
-- Send to:
-  - `ShippingService` with address (for PaperBooks)
-  - `MailService` with email (for EBooks)
-- Reduce inventory stock
-- Return total price paid
-- Errors thrown if:
-  - Book doesn’t exist
-  - Not purchasable (e.g., ShowcaseBook)
-  - Not enough stock
-  
-##Features
+The project demonstrates object-oriented design, inventory management, purchase validation, and delivery handling for different book types.
 
--  Add books to inventory (ISBN, title, author, year, price)
--  Buy books via ISBN, with address/email (depending on type)
--  Remove outdated books (based on age)
--  Automatically handle shipping/email delivery
--  All messages prefixed with: `Quantum book store:`
--  Easily extendable to support new product types
+## 🚀 Technologies
+
+* Java
+* Object-Oriented Programming
+* Collections
+* Service-based design
+
+## 📁 Project Structure
+
+```text
+quantum-book-store/
+├── fawrii2/
+├── ss1.jpg
+├── ss2.jpg
+├── ss3.jpg
+└── README.md
+```
+
+## ⚙️ Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Zeyadtharwat66/quantum-book-store.git
+```
+
+Navigate to the project:
+
+```bash
+cd quantum-book-store
+```
+
+Open the Java project in your preferred Java development environment and run the application from its main class.
+
+## 📌 Purchasing Logic
+
+The application:
+
+* Looks up books by ISBN
+* Validates requested quantities for physical books
+* Sends physical books to the shipping service
+* Sends e-books to the mail service
+* Reduces inventory stock
+* Returns the total purchase price
+
+Errors are handled when:
+
+* A book does not exist
+* A book is not purchasable
+* There is not enough stock
+
+## 🛠️ Main Features
+
+* Add books to inventory
+* Buy books using ISBN
+* Support different book types
+* Remove outdated books
+* Handle shipping for physical books
+* Handle email delivery for e-books
+* Extend the system with additional product types
+
+## 🔮 Future Improvements
+
+* Add automated tests
+* Add a REST API
+* Add persistent database storage
+* Add centralized exception handling
+* Add a web interface
+
+## 👨‍💻 Author
+
+**Zeyad Tharwat**
+
+## 📄 License
+
+This project is for learning and development purposes.
