@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
-    static final File file = new File("fawrii2/books.json");
+    static final File file = new File("books.json");
     public static Book add(File file,Book newBook) throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
