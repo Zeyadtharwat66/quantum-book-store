@@ -1,4 +1,3 @@
-import java.io.UnsupportedEncodingException;
 import java.time.*;
 import java.util.Scanner;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -10,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
-    static File file = new File("books.json");
+    static final File file = new File("fawrii2/books.json");
     public static Book add(File file,Book newBook) throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
@@ -19,9 +18,7 @@ public class Main {
             booksExist = mapper.readValue(file, new TypeReference<Map<String, Book>>() {});
         }
         booksExist.put(newBook.getIsbn(),newBook);
-        try {
-            mapper.writeValue(file, booksExist);
-        } catch (Exception e) {}
+        mapper.writeValue(file, booksExist);
 
         return newBook;
     }
@@ -33,12 +30,8 @@ public class Main {
             });
         }
         if (booksExist.containsKey(Isbn)) {
-            System.out.println("dd");
             booksExist.remove(Isbn);
-            try {
-                mapper.writeValue(file, booksExist);
-            } catch (Exception e) {
-            }
+            mapper.writeValue(file, booksExist);
             return "remove successful";
         } else {
             return "remove failed";
@@ -46,7 +39,7 @@ public class Main {
     }
     public static String buyBook(String isbn,String address,String email) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        File file = new File("book.json");
+        File file = Main.file;
         Map<String, Book> booksExist = new HashMap<>();
         if (file.exists()) {
             booksExist = mapper.readValue(file, new TypeReference<Map<String, Book>>() {
@@ -143,8 +136,7 @@ public class Main {
                             System.out.println("Enter Book publishDate:");
                             String publishDate2 = myObj.next();
                             Book b2=new PaperBook(title2,ISBN2,year2,price2,publishDate2,quantity);
-                            File file2 = new File("book.json");
-                            Main.add(file2,b2);
+                            Main.add(Main.file,b2);
                             break;
                         case 3:
                             System.out.println("Enter Book ISBN:");
@@ -158,8 +150,7 @@ public class Main {
                             System.out.println("Enter Book publishDate:");
                             String publishDate3 = myObj.next();
                             Book b3=new Demobook(title3,ISBN3,year3,price3,publishDate3,1);
-                            File file3 = new File("book.json");
-                            Main.add(file3,b3);
+                            Main.add(Main.file,b3);
                             break;
                         default:
                     }
